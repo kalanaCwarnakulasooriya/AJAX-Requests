@@ -1,0 +1,36 @@
+[
+  {
+    "name" : "kalana",
+    "address" : [
+      {
+        "no" : 123,
+        "street" : "Flower Street",
+        "province" : "Southern Province"
+      },
+      {
+        "no" : 100,
+        "street" : "Jayanthi Street",
+        "province" : "Central Province"
+      }
+    ],
+    "phone" : "077-1234567",
+    "email" : "kalana@example.com"
+  },
+  {
+    "name" : "chamod",
+    "address" : [
+      {
+        "no" : 122,
+        "street" : "Anula Street",
+        "province" : "Southern Province"
+      },
+      {
+        "no" : 109,
+        "street" : "Nine Street",
+        "province" : "Southern Province"
+      }
+    ],
+    "phone" : "077-7697090",
+    "email" : "chamod@example.com"
+  }
+]
