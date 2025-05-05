@@ -11,38 +11,54 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+<!--<script>-->
+<!--    $(`#ajax-btn`).click(function (){-->
+<!--        console.log("Request Started");-->
+<!--        var http = new XMLHttpRequest();-->
+<!--        console.log(http.readyState,"After XMLHttpRequest Object Created");-->
+<!--        // http.open("GET", "index.html");-->
+<!--        http.open("GET", "db.txt");-->
+<!--        // http.open("GET", "db.txt",false);-->
+<!--        // http.open("GET", "js/main.js");-->
+<!--        // http.open("GET", "google.com");-->
+<!--        // http.open("GET","https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css");-->
+<!--        console.log(http.readyState,"After Open Method Invoked");-->
+<!--        console.log(http.responseText);-->
+<!--        console.log(http.readyState,"After Response Text Printed");-->
+<!--        http.send();-->
+<!--        http.onreadystatechange = function () {-->
+<!--            console.log(http.readyState,"Inside the On Ready State Change Method");-->
+<!--            console.log(http.responseText);-->
+<!--            console.log(http.status);-->
+<!--            // console.log(http.status === 200 && http.readyState === 4);-->
+<!--            // $(`#ajax-text`).html(http.responseText);-->
+<!--            // $(`#ajax-text`).text(http.responseText);-->
+<!--            if (http.status === 200 && http.readyState === 4) {-->
+<!--                $(`#ajax-text`).text(http.responseText);-->
+<!--            }-->
+
+<!--            if (http.status === 404 && http.readyState === 4) {-->
+<!--                alert("Resource Not Found");-->
+<!--            }-->
+<!--        }-->
+<!--        console.log(http.readyState,"After Send Method Invoked");-->
+<!--        console.log("Request Finished");-->
+<!--    });-->
+<!--</script>-->
+
 <script>
     $(`#ajax-btn`).click(function (){
-        console.log("Request Started");
-        var http = new XMLHttpRequest();
-        console.log(http.readyState,"After XMLHttpRequest Object Created");
-        // http.open("GET", "index.html");
-        // http.open("GET", "db.txt");
-        http.open("GET", "db.txt",false);
-        // http.open("GET", "js/main.js");
-        // http.open("GET", "google.com");
-        // http.open("GET","https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css");
-        console.log(http.readyState,"After Open Method Invoked");
-        console.log(http.responseText);
-        console.log(http.readyState,"After Response Text Printed");
-        http.send();
-        http.onreadystatechange = function () {
-            console.log(http.readyState,"Inside the On Ready State Change Method");
-            console.log(http.responseText);
-            console.log(http.status);
-            // console.log(http.status === 200 && http.readyState === 4);
-            // $(`#ajax-text`).html(http.responseText);
-            // $(`#ajax-text`).text(http.responseText);
-            if (http.status === 200 && http.readyState === 4) {
-                $(`#ajax-text`).text(http.responseText);
-            }
-
-            if (http.status === 404 && http.readyState === 4) {
+        $.ajax({
+            url: "db.txt",
+            // method: "PUT",
+            success: function (result) {
+                // console.log(result);
+                $(`#ajax-text`).html(result)
+            },
+            error: function () {
                 alert("Resource Not Found");
             }
-        }
-        console.log(http.readyState,"After Send Method Invoked");
-        console.log("Request Finished");
+        });
     });
 </script>
 </body>
